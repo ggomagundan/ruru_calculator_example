@@ -27,7 +27,7 @@ methods!(
 );
 
 #[no_mangle]
-pub extern fn initialize_my_app() {
+pub extern fn initialize_ruru_calculator() {
     Class::new("RustyCalculator", None).define(|itself| {
         itself.def("pow_3", pow_3);
     });

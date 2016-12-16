@@ -4,7 +4,7 @@ require 'fiddle'
 
 library = Fiddle::dlopen('target/release/librusty_calculator.dylib')
 
-Fiddle::Function.new(library['initialize_my_app'], [], Fiddle::TYPE_VOIDP).call
+Fiddle::Function.new(library['initialize_ruru_calculator'], [], Fiddle::TYPE_VOIDP).call
 
 
 class Calculator
@@ -17,6 +17,7 @@ end
 
 # ... somewhere in the application code ...
 puts "Ruby Code"
+puts Calculator.new.pow_3(5)
 Benchmark.bm do |x|
   x.report {
     5_000_000.times do 
@@ -26,6 +27,7 @@ Benchmark.bm do |x|
 end
 
 puts "RuRu Code"
+puts RustyCalculator.new.pow_3(5)
 Benchmark.bm do |x|
   x.report { 
     5_000_000.times do 
